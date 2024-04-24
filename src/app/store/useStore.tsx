@@ -8,7 +8,6 @@ interface StoreState {
   cartProducts: IProducts[];
   addItemCart: (newItems: IProducts[]) => void;
   removeItemCart: (id: string) => void;
-  addItems: (newItems: IProducts[]) => void;
   incrementQuantity: (productId: string) => void;
   decrementQuantity: (productId: string) => void;
 }
@@ -18,8 +17,6 @@ const useStore = create<StoreState>((set) => ({
   cart: false,
   cartProducts: [],
 
-  addItems: (newItems) =>
-    set((state) => ({ products: [...state.products, ...newItems] })),
 
   addItemCart: (newItems) => {
     if (!Array.isArray(newItems)) { newItems = [newItems] }

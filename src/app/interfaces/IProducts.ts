@@ -7,5 +7,6 @@ export interface IProducts {
     createdAt: string;
     updatedAt: string;
     quantity?: number;
+    description: string;
     valorTotal?: number;
 }

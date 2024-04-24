@@ -8,29 +8,46 @@ import Cart from "../../components/Cart/Cart";
 import { useEffect, useState } from "react";
 import Loading from "../../components/loading/loading";
 import { FiShoppingBag } from "react-icons/fi";
+import { MouseEvent } from 'react';
 
 export default function HomePage() {
-    const { addItems, addItemCart, cartProducts } = useStore();
+    const { addItems, addItemCart } = useStore();
     const [loading, setLoading] = useState(true)
 
     const { data, isLoading } = useQuery({
-        queryKey: "products",
+        queryKey: ["products"],
         queryFn: async () => {
             const response = await axios.get("https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC");
             const products = response.data.products;
             addItems(products);
             return products;
         },
-        config: {
-            staleTime: 1000 * 100,
-        },
+        staleTime: 1000 * 100,
     });
+
 
     useEffect(() => {
         setTimeout(() => {
             setLoading(isLoading)
         }, 2000)
     })
+
+    function showFullDescription(event: MouseEvent) {
+        const descriptionHover = event.target as HTMLElement;
+        const fullDescription = descriptionHover.querySelector('.full-description') as HTMLDivElement;
+        if (fullDescription) {
+            fullDescription.style.opacity = '1';
+        }
+    }
+
+    function hideFullDescription(event: MouseEvent) {
+        const descriptionHover = event.target as HTMLElement;
+        const fullDescription = descriptionHover.querySelector('.full-description') as HTMLDivElement;
+        if (fullDescription) {
+            fullDescription.style.opacity = '0';
+        }
+    }
+
 
     return (
         <>
@@ -42,7 +59,7 @@ export default function HomePage() {
                             ?
                             <Loading />
                             :
-                            data?.map((item, index) => {
+                            data?.map((item: any, index: any) => {
                                 return (
                                     <div className='card' key={index}>
                                         <img src={item.photo} />
@@ -51,11 +68,12 @@ export default function HomePage() {
                                             <div>R${parseInt(item.price).toFixed()}</div>
                                         </div>
                                         <div
-                                            class="description-hover"
-                                            onmouseover="showFullDescription(this)"
-                                            onmouseout="hideFullDescription(this)">
+                                            className="description-hover"
+                                            onMouseOver={showFullDescription}
+                                            onMouseOut={hideFullDescription}
+                                        >
                                             {item.description.substring(0, 80)}...
-                                            <span class="full-description">{item.description}</span>
+                                            <span className="full-description">{item.description}</span>
                                         </div>
                                         <button
                                             onClick={() => addItemCart(item)}

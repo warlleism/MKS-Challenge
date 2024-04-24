@@ -1,9 +1,11 @@
 export interface IProducts {
-    id: number;
+    id: string;
     name: string;
     brand: string;
     photo: string;
-    price: string;
+    price: any;
     createdAt: string;
     updatedAt: string;
+    quantity?: number;
+    valorTotal?: number;
 }

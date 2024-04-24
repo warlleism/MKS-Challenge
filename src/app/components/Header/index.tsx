@@ -6,7 +6,6 @@ import useStore from "../../store/useStore";
 
 const Header = () => {
     const { showCart, cartProducts } = useStore();
-
     return (
         <div className="container-header">
             <div className="container-titulo">

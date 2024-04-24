@@ -1,10 +1,17 @@
 
 import React from "react";
-import HomePage from './pages/home/Index'
+import HomePage from './pages/Home/Index'
+import Header from "./components/Header";
 export default function Home() {
   return (
-    <main>
+    <div style={{
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center"
+    }}>
+      <Header />
       <HomePage />
-    </main>
+    </div>
   );
 }

@@ -3,9 +3,11 @@ import { motion } from "framer-motion"
 const Loading = () => {
     return (
         <>
-            <div style={{
-                position: "absolute"
-            }}>
+            <div
+                role="loading"
+                style={{
+                    position: "absolute"
+                }}>
                 <motion.div
                     style={{
                         width: 200,

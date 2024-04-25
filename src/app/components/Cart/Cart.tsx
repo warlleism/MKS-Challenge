@@ -38,7 +38,7 @@ const Cart = () => {
                                         <div className='qtd'>Qtd:</div>
                                         <div className='container-select-qtd'>
                                             <div onClick={() => incrementQuantity(item.id)} style={{ cursor: 'pointer' }}><FaPlus size={12} /></div>
-                                            <div>{item.quantity}</div>
+                                            <div role="quantity">{item.quantity}</div>
                                             <div onClick={() => decrementQuantity(item.id)} style={{ cursor: 'pointer' }}><IoMdRemove size={12} /></div>
                                         </div>
                                     </div>

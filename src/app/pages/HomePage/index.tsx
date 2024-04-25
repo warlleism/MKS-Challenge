@@ -65,7 +65,7 @@ export default function HomePage() {
                             :
                             data?.map((item: IProducts, index: string) => {
                                 return (
-                                    <div className='card' key={index}>
+                                    <div role='cards' className='card' key={index}>
                                         <img src={item.photo} />
                                         <div className='container-name-price'>
                                             <div>{item.name}</div>
@@ -79,7 +79,7 @@ export default function HomePage() {
                                             {item.description.substring(0, 80)}...
                                             <span className="full-description">{item.description}</span>
                                         </div>
-                                        <button onClick={() => addItemCart(Object(item))}>
+                                        <button role='comprar' onClick={() => addItemCart(Object(item))}>
                                             <FiShoppingBag size={17} />
                                             COMPRAR
                                         </button>

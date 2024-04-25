@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 import { IProducts } from "../interfaces/IProducts";
 
 interface StoreState {
@@ -11,6 +11,8 @@ interface StoreState {
   incrementQuantity: (productId: string) => void;
   decrementQuantity: (productId: string) => void;
 }
+
+
 
 const useStore = create<StoreState>((set) => ({
   products: [],

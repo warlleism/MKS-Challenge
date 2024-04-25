@@ -79,7 +79,7 @@ export default function HomePage() {
                                             {item.description.substring(0, 80)}...
                                             <span className="full-description">{item.description}</span>
                                         </div>
-                                        <button role='comprar' onClick={() => addItemCart(Object(item))}>
+                                        <button role='button' onClick={() => addItemCart(Object(item))}>
                                             <FiShoppingBag size={17} />
                                             COMPRAR
                                         </button>

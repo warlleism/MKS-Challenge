@@ -12,7 +12,9 @@ const Header = () => {
                 <div>MKS</div>
                 <div>Sistemas</div>
             </div>
-            <div className="container-cart-info" onClick={showCart}>
+            <div 
+            role="show"
+            className="container-cart-info" onClick={showCart}>
                 <FaShoppingCart />
                 {cartProducts.length}
             </div>

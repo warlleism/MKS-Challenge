@@ -12,8 +12,6 @@ interface StoreState {
   decrementQuantity: (productId: string) => void;
 }
 
-
-
 const useStore = create<StoreState>((set) => ({
   products: [],
   cart: false,

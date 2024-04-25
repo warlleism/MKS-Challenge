@@ -15,7 +15,9 @@ const Cart = () => {
 
     return (
         <>
-            <div className='cart-container'
+            <div 
+            role='cart'
+            className='cart-container'
                 style={{ transform: cart ? `translateX(0px)` : `translateX(1200px)` }}>
                 <div className='container-text-close'>
                     <div className='text'>Carrinho de compras</div>
@@ -37,9 +39,9 @@ const Cart = () => {
                                     <div className='container-qtd'>
                                         <div className='qtd'>Qtd:</div>
                                         <div className='container-select-qtd'>
-                                            <div onClick={() => incrementQuantity(item.id)} style={{ cursor: 'pointer' }}><FaPlus size={12} /></div>
+                                            <div role='increment' onClick={() => incrementQuantity(item.id)} style={{ cursor: 'pointer' }}><FaPlus size={12} /></div>
                                             <div role="quantity">{item.quantity}</div>
-                                            <div onClick={() => decrementQuantity(item.id)} style={{ cursor: 'pointer' }}><IoMdRemove size={12} /></div>
+                                            <div role='decrement' onClick={() => decrementQuantity(item.id)} style={{ cursor: 'pointer' }}><IoMdRemove size={12} /></div>
                                         </div>
                                     </div>
                                     <div className='price-text-cart'>R${item?.valorTotal ? item?.valorTotal : parseInt(item.price).toFixed()}</div>
